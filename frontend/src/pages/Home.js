@@ -15,7 +15,8 @@ const Home = observer(() => {
     const bookList = async () => {
         const data = await fetchBooks();
             book.setBooks(data.books);
-            navigate(BOOKS_ROUTE)
+            book.setFieldNames(data.fieldNames);
+            navigate(BOOKS_ROUTE);
 
     }
 

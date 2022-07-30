@@ -1,4 +1,5 @@
 ﻿using BooksLibrary.Abstract;
+using BooksLibrary.Const;
 using BooksLibrary.Models;
 using BooksLibrary.Models.Dtos;
 using Microsoft.AspNetCore.Http;
@@ -25,7 +26,9 @@ namespace Books.Controllers
                 return BadRequest();
             }
 
-            return Ok( new { books = books });
+            var fieldNames = ConstParameters.FieldName;
+
+            return Ok( new { fieldNames = fieldNames, books = books });
         }
 
         [HttpPost("create")]
@@ -58,7 +61,7 @@ namespace Books.Controllers
             var books = _books.SearchBooks(dto);
             if (books == null || books.Count == 0)
             {
-                return BadRequest();
+                return BadRequest( new { message = "Nothing was found according to the specified criteria!" });
             }
 
             return Ok(new { books = books });

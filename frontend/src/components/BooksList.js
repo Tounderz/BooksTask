@@ -5,6 +5,7 @@ import { observer } from 'mobx-react-lite';
 import BookItem from './BookItem';
 import ColumnItem from './ColumnItem';
 import CreateBook from './create/CreateBook';
+import Search from './Search';
 
 const BooksList = observer(() => {
     const {book} = useContext(Context);
@@ -12,6 +13,7 @@ const BooksList = observer(() => {
 
     return (
         <Container>
+            <Search key='id'/>
             <Table
                 className='table table-bordered border-dark'
                 style={{

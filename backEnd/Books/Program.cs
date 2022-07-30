@@ -37,12 +37,6 @@ app.UseCors(options => options
    .AllowAnyMethod()
 );
 
-/*using (var scope = app.ApplicationServices.CreateScope())
-{
-    AppDBContext context = scope.ServiceProvider.GetRequiredService<AppDBContext>();
-    DBObjects.Initial(context);
-}*/
-
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();

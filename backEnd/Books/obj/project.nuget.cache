@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "3jU3Bc5h1MBypH4IIsEJoy1HMf79URMTciGgdJiBnxEhIbn9n22pXt3zd7q1mx7LIB2xKdA6wR92IP0D+yMB0A==",
+  "dgSpecHash": "lw7MOy7gpIV1qK+DBiCMaik3oohwc/MFd8DHFYUHTwA3NVgQLNi27aA6Lc+abMHg4ZSBcNcJppdvpIP+ELTcfg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\basta\\source\\repos\\Books\\Books\\Books.csproj",
+  "projectFilePath": "C:\\Users\\basta\\source\\repos\\BooksTask\\backEnd\\Books\\Books.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\basta\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\basta\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

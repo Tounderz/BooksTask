@@ -15,8 +15,8 @@ export const sortBooks = async (nameColumn, type) => {
     return data;
 }
 
-export const searchBooks = async () => {
-    const {data} = await axiosApi.post(`/books/search`);
+export const searchBooks = async (nameColumn, parameter) => {
+    const {data} = await axiosApi.post(`/books/search`, { FieldName: nameColumn, Parameter: parameter });
     return data;
 }
 

@@ -16,7 +16,7 @@ const BookItem = ({item}) => {
                 <th scope="row">{item.id}</th>
                     <td>{item.title}</td>
                     <td>{item.author}</td>
-                    <td>{item.dateOfPublication}</td>
+                    <td>{item.dateOfPublication.slice(0, 10)}</td>
                     <td>
                         <button
                         className="btn-primary m-2"

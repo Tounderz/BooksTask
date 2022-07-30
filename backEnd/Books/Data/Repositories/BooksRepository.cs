@@ -22,11 +22,16 @@ namespace Books.Data.Repositories
                 return null;
             }
 
+            var year = model.DateOfPublication.Year;
+            var month = model.DateOfPublication.Month;
+            var day = model.DateOfPublication.Day;
+            var date = new DateTime(year / month / day);
+
             book = new BooksModel
             {
                 Title = model.Title,
                 Author = model.Author,
-                DateOfPublication = model.DateOfPublication
+                DateOfPublication = date
             };
 
             _books.Add(book);
@@ -54,16 +59,22 @@ namespace Books.Data.Repositories
             {
                 case "Id":
                     var book = _books.FirstOrDefault(i => i.Id == int.Parse(dto.Parameter));
+                    if (book == null)
+                    {
+                        return null;
+                    }
+
                     books.Add(book);
                     break;
                 case "Author":
-                    books = _books.Where(i => i.Author.Contains(dto.Parameter)).ToList();
+                    books = _books.Where(i => i.Author.Contains(dto.Parameter, StringComparison.OrdinalIgnoreCase)).ToList();
                     break;
                 case "Title":
-                    books = _books.Where(i => i.Title.Contains(dto.Parameter)).ToList();
+                    books = _books.Where(i => i.Title.Contains(dto.Parameter, StringComparison.OrdinalIgnoreCase)).ToList();
                     break;
-                case "DateOfPublication":
-                    books = _books.Where(i => i.DateOfPublication == DateTime.Parse(dto.Parameter)).ToList();
+                case "Date Of Publication":
+                    var value = dto.Parameter.Length > 4 ? DateTime.Parse(dto.Parameter.Replace("/", ".")) : new DateTime(int.Parse(dto.Parameter), 1, 1);
+                    books = _books.Where(i => i.DateOfPublication.Year == value.Year).ToList();
                     break;
                 default:
                     break;
@@ -149,6 +160,7 @@ namespace Books.Data.Repositories
 
         public List<BooksModel> GetBooks()
         {
+            
             _books = _dbContext.Books.ToList();
             return _books;
         }
