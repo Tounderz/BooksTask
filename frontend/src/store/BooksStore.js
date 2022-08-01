@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx'
 
-export default class AuthStore {
+export default class BooksStore {
     constructor() {
         this._books = []
         this._fieldNames = []
